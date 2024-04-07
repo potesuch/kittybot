@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import SecretStr
+from typing import Union
 
 
 class Settings(BaseSettings):
@@ -15,7 +16,7 @@ class Settings(BaseSettings):
     ngrok_host: str
     ngrok_port: str
     webhook_path: str
-    webhook_base_url: str = None
+    webhook_base_url: str | None = None
     model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8')
 
 
