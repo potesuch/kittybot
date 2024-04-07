@@ -9,7 +9,7 @@ router = Router()
 
 
 @router.message((F.text.lower() == 'поддержка') & (F.chat.id == 248779515))
-async def support_admin(state: FSMContext):
+async def support_admin(message: Message, state: FSMContext):
     await state.set_state(Support.in_conv)
 
 
