@@ -10,7 +10,8 @@ router = Router()
 
 @router.message((F.text.lower() == 'поддержка') & (F.chat.id == 248779515))
 async def support_admin(message: Message, state: FSMContext):
-    await message.answer(reply_markup=get_for_support_kb())
+    await message.answer('Вы вошли в чат поддержки',
+                         reply_markup=get_for_support_kb())
     await state.set_state(Support.in_conv)
 
 
