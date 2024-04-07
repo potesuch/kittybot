@@ -1,0 +1,13 @@
+authtoken: 2emi09g3qx7n6jr9JEfDAuV4dLX_2yybJVhpj5RS3nZbRDa5h
+web_addr: 0.0.0.0:4040
+update: false
+log: stdout
+version: 2
+
+tunnels:
+  ssh-access:
+    addr: ssh-server:22
+    proto: tcp
+  app-foo:
+    addr: nginx:80
+    proto: http
