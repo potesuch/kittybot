@@ -1,6 +1,5 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import SecretStr
-from typing import Union
 
 
 class Settings(BaseSettings):

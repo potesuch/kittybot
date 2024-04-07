@@ -8,6 +8,11 @@ from keyboards.for_common import get_common_kb
 router = Router()
 
 
+@router.message((F.text.lower() == 'поддержка') & (F.chat.id == 248779515))
+async def support_admin(state: FSMContext):
+    await state.set_state(Support.in_conv)
+
+
 @router.message(F.text.lower() == 'поддержка')
 async def support(message: Message, state: FSMContext):
     await message.answer(
