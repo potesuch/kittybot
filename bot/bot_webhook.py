@@ -6,7 +6,7 @@ from aiogram.fsm.storage.redis import RedisStorage
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 
 from handlers import common, support
-from config_reader import config
+from data.config_reader import config
 
 
 async def on_startup(bot: Bot):

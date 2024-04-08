@@ -3,7 +3,7 @@ import asyncio
 from aiogram import Bot, Dispatcher
 from handlers import common, support
 from aiogram.fsm.storage.memory import MemoryStorage
-from config_reader import config
+from data.config_reader import config
 
 logging.basicConfig(
     level=logging.INFO,

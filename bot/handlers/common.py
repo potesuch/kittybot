@@ -6,7 +6,7 @@ from aiogram.types import Message, URLInputFile
 from aiogram.utils.formatting import Text, Bold, as_list
 from aiogram.enums import ChatAction
 from keyboards.for_common import get_common_kb
-from config_reader import config
+from data.config_reader import config
 
 COMMANDS = ('/cats', '/ai_cats', '/ai_persons')
 
