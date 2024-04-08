@@ -1,2 +1,5 @@
 venv
+infra/.env
+.idea
+
 
