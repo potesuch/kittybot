@@ -2,13 +2,16 @@ services:
   nginx:
     image: nginx:1.25.4-alpine
     ports:
-      - "80:80"
+      - "81:80"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf/
+      - ./nginx/sites-enabled/default:/etc/nginx/sites-enabled/default
+      - ./letsencrypt/live/potesuch.ddns.net/fullchain.pem:/etc/letsencrypt/live/potesuch.ddns.net/fullchain.pem
+      - ./letsencrypt/live/potesuch.ddns.net/privkey.pem:/etc/letsencrypt/live/potesuch.ddns.net/privkey.pem
   ngrok:
       image: ngrok/ngrok:latest
       ports:
-        - "4040:4040"
+        - "4041:4040"
       restart: unless-stopped
       command:
         - "start"
@@ -21,13 +24,15 @@ services:
         - nginx
   redis:
     image: redis:7.2.4-alpine
+    ports:
+      - "6380:6379"
     volumes:
       - /var/lib/redis/data/
   bot:
     build: .
     restart: always
     ports:
-      - "8080:8080"
+      - "8081:8080"
     depends_on:
       - redis
       - ngrok
