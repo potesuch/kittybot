@@ -1,5 +1,6 @@
 venv
 infra/.env
+infra/letsencrypt
 .idea
 
 
