@@ -30,7 +30,7 @@ services:
     volumes:
       - /var/lib/redis/data/
   bot_kittybot:
-    build: ../bot
+    image: potesuch/kittybot
     restart: always
     ports:
       - "8081:8080"
