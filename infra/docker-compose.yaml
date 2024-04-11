@@ -1,5 +1,5 @@
 services:
-  nginx:
+  nginx_kittybot:
     image: nginx:1.25.4-alpine
     ports:
       - "443:443"
@@ -7,10 +7,10 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf/
       - ./letsencrypt/live/potesuch.ddns.net/fullchain.pem:/etc/letsencrypt/live/potesuch.ddns.net/fullchain.pem
       - ./letsencrypt/live/potesuch.ddns.net/privkey.pem:/etc/letsencrypt/live/potesuch.ddns.net/privkey.pem
-#  ngrok:
+#  ngrok_kittybot:
 #      image: ngrok/ngrok:latest
 #      ports:
-#        - "4041:4040"
+#        - "4042:4040"
 #      restart: unless-stopped
 #      command:
 #        - "start"
@@ -20,22 +20,22 @@ services:
 #      volumes:
 #        - ./ngrok/ngrok.yml:/etc/ngrok.yml
 #      depends_on:
-#        - nginx
+#        - nginx_kittybot
 #      env_file:
 #        - ./.env
-  redis:
+  redis_kittybot:
     image: redis:7.2.4-alpine
     ports:
-      - "6380:6379"
+      - "6381:6379"
     volumes:
       - /var/lib/redis/data/
-  bot:
+  bot_kittybot:
     build: ../bot
     restart: always
     ports:
       - "8081:8080"
     depends_on:
-      - redis
-#      - ngrok
+      - redis_kittybot
+#      - ngrok_kittybot
     env_file:
       - ./.env
