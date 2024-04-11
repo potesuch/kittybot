@@ -28,7 +28,7 @@ services:
     ports:
       - "6381:6379"
     volumes:
-      - /var/lib/redis/data/
+      - redis_storage_kittybot:/var/lib/redis/data/
   bot_kittybot:
     image: potesuch/kittybot
     restart: always
@@ -39,3 +39,6 @@ services:
 #      - ngrok_kittybot
     env_file:
       - ./.env
+
+volumes:
+  redis_storage_kittybot:
