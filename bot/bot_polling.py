@@ -15,6 +15,14 @@ dp = Dispatcher(storage=MemoryStorage())
 
 
 async def main():
+    """
+    Основная функция для запуска бота в режиме поллинга.
+
+    Инициализирует диспетчер бота, включает роутеры и запускает поллинг для получения сообщений.
+
+    Raises:
+        AiogramConnectionError: Ошибка соединения с ботом.
+    """
     dp.include_routers(common.router, support.router)
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)

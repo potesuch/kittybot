@@ -3,6 +3,12 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 
 def get_common_kb() -> ReplyKeyboardMarkup:
+    """
+    Возвращает клавиатуру с основными командами бота.
+
+    Returns:
+        ReplyKeyboardMarkup: Объект клавиатуры с кнопками.
+    """
     kb = ReplyKeyboardBuilder()
     kb.row(
         KeyboardButton(text='Кот'),
