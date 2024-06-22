@@ -23,8 +23,8 @@
 ### Клонирование репозитория
 
 ``` bash
-git clone https://github.com/your/repository.git
-cd repository
+git clone https://github.com/potesuch/kittybot.git
+cd kittybot
 ```
 
 ### Настройка конфигурации
